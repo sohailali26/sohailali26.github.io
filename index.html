@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohail - SDE Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for professional icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Base styles for light theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #334155; /* Dark slate gray text */
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e2e8f0; /* Light border for separation */
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+        h1, h2, h3 {
+            color: #1e293b; /* Darker heading color */
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            background-color: #4f46e5; /* Indigo */
+            color: white;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+        }
+        .btn-primary:hover {
+            background-color: #4338ca; /* Darker indigo */
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            background-color: #e2e8f0; /* Light gray */
+            color: #475569; /* Slate gray */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #cbd5e1; /* Darker light gray */
+            transform: translateY(-2px);
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+            display: inline-block; /* Ensure icons align properly with text */
+            vertical-align: middle; /* Vertically align with text */
+        }
+        /* Custom styles for Lucide icons */
+        .lucide {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Dark mode styles */
+        html.dark body {
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+        }
+        html.dark h1, html.dark h2, html.dark h3 {
+            color: #f8fafc; /* Lighter headings */
+        }
+        html.dark section {
+            border-bottom-color: #2d3748; /* Darker border */
+        }
+        html.dark .card {
+            background-color: #2d3748; /* Darker card background */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        html.dark .text-gray-600 {
+            color: #a0aec0; /* Lighter gray for dark mode */
+        }
+        html.dark .text-gray-700 {
+            color: #cbd5e1; /* Lighter gray for dark mode */
+        }
+        html.dark .text-gray-800 {
+            color: #f8fafc; /* Lighter gray for dark mode */
+        }
+        html.dark .text-indigo-600 {
+            color: #818cf8; /* Lighter indigo for dark mode */
+        }
+        html.dark .text-indigo-700 {
+            color: #a78bfa; /* Lighter indigo for dark mode */
+        }
+        html.dark .btn-secondary {
+            background-color: #4a5568; /* Darker secondary button */
+            color: #e2e8f0; /* Lighter text for secondary button */
+        }
+        html.dark .btn-secondary:hover {
+            background-color: #64748b; /* Even darker hover */
+        }
+        html.dark .bg-indigo-100 {
+            background-color: #4338ca; /* Darker background for skill tags */
+        }
+        html.dark .text-indigo-800 {
+            color: #c7d2fe; /* Lighter text for skill tags */
+        }
+        html.dark .text-gray-500 {
+            color: #a0aec0; /* Lighter gray for dates */
+        }
+        html.dark .bg-gray-800 {
+            background-color: #1a202c; /* Darker footer background */
+        }
+        html.dark .border-gray-300 {
+            border-color: #4a5568; /* Darker border for form inputs */
+        }
+        html.dark input, html.dark textarea {
+            background-color: #2d3748; /* Darker background for form inputs */
+            color: #e2e8f0; /* Lighter text for form inputs */
+        }
+        html.dark input::placeholder, html.dark textarea::placeholder {
+            color: #a0aec0; /* Lighter placeholder text */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Hero Section -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16 md:py-24">
+        <div class="container flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+            <div class="mb-8 md:mb-0 md:w-2/3">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Hi, I'm Sohail</h1>
+                <p class="text-xl md:text-2xl font-light mb-6">A Passionate Software Development Engineer</p>
+                <p class="text-lg mb-4 max-w-2xl mx-auto md:mx-0">
+                    I build robust and scalable software solutions. With a strong foundation in backend development, cloud technologies, and data structures, I thrive on solving complex problems and
+                    creating impactful applications.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
+                    <p class="text-lg flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2.02 15.97 15.97 0 0 1-8.83-5.07 15.97 15.97 0 0 1-5.07-8.83A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +91 9315103510
+                    </p>
+                    <p class="text-lg flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail icon"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        sde.sohail@gmail.com
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#projects" class="btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code icon"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail icon"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                <!-- Your actual portrait image -->
+                <img src="profile.jpg" alt="Your Portrait" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </header>
+
+    <!-- Theme Toggle Button -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="theme-toggle" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-md transition-colors duration-300">
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+    </div>
+
+    <!-- About Me Section -->
+    <section id="about" class="container">
+        <h2 class="text-3xl md:text-4xl text-center mb-12">About Me</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <p class="text-lg mb-4">
+                    I am a Software Development Engineer with 4 years of experience in designing, developing, and deploying
+                    high-performance and scalable applications. My expertise lies in backend systems,
+                    APIs, microservices, and cloud technologies.
+                </p>
+                <p class="text-lg mb-4">
+                    I'm passionate about clean code, robust architecture, and continuous learning. I enjoy tackling challenging
+                    problems and collaborating with teams to deliver innovative solutions that make a real impact.
+                </p>
+                <p class="text-lg">
+                    In my free time, I enjoy Reading novels, gym workout, and long bike rides.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="card p-6 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap text-indigo-500 mx-auto mb-3"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <h3 class="text-xl font-semibold mb-2">Fast Learner</h3>
+                    <p class="text-gray-600 text-sm">Quickly adapt to new technologies & methodologies.</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users text-indigo-500 mx-auto mb-3"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <h3 class="text-xl font-semibold mb-2">Team Player</h3>
+                    <p class="text-gray-600 text-sm">Effective collaboration & communication.</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb text-indigo-500 mx-auto mb-3"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/><path d="M10 18a2 2 0 1 1 4 0"/></svg>
+                    <h3 class="text-xl font-semibold mb-2">Problem Solver</h3>
+                    <p class="text-gray-600 text-sm">Analytical approach to complex challenges.</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-indigo-500 mx-auto mb-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                    <h3 class="text-xl font-semibold mb-2">Detail-Oriented</h3>
+                    <p class="text-gray-600 text-sm">Ensuring precision & quality in work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="text-3xl md:text-4xl text-center mb-12">My Skills</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Example Skill Category -->
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-4 text-indigo-600">Languages</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Java</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>Go</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
+            </div>
+            <!-- Example Skill Category -->
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-4 text-indigo-600">Frameworks & Libraries</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Spring Boot</li>
+                    <li>Hibernate</li>
+                    <li>React.js</li>
+                    <li>Node.js </li>
+                    <li>Junit</li>
+                </ul>
+            </div>
+            <!-- Example Skill Category -->
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-4 text-indigo-600">Databases</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>PostgreSQL</li>
+                    <li>MongoDB</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+            <!-- Example Skill Category -->
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-4 text-indigo-600">Cloud & DevOps</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>GCP</li>
+                    <li>Docker</li>
+                    <li>Kubernetes</li>
+                    <li>Git / GitHub</li>
+                    <li>CI/CD (Harness,terraform, GitHub Actions)</li>
+                </ul>
+            </div>
+            <!-- Add more skill categories as needed -->
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-4 text-indigo-600">Tools & Methodologies</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>RESTful APIs</li>
+                    <li>Microservices</li>
+                    <li>Dynatrace</li>
+                    <li>Agile/Scrum</li>
+                    <li>Jira</li>
+                    <li>Postman</li>
+                    <li>Selenium</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="text-3xl md:text-4xl text-center mb-12">Featured Projects</h2>
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projects will be dynamically loaded here by JavaScript -->
+            <div class="card flex flex-col">
+                <h3 class="text-2xl font-semibold mb-3 text-indigo-700">Loading Projects...</h3>
+                <p class="text-gray-600 mb-4 flex-grow">
+                    Please wait while projects are being loaded or update the JavaScript to fetch from your GitHub.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <h2 class="text-3xl md:text-4xl text-center mb-12">Work Experience</h2>
+        <div class="space-y-8">
+            <!-- Experience Item 1 -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-2xl font-semibold text-indigo-700">TCS</h3>
+                    <span class="text-gray-500 text-sm">Nov 2021 – Present</span>
+                </div>
+                <p class="text-xl font-medium text-gray-800 mb-3">Software Development Engineer</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Developed and maintained scalable backend services using Java, Spring Boot, and Microservices.</li>
+                    <li>Designed and implemented RESTful APIs for real-time data processing, improving data retrieval efficiency by 30%.</li>
+                    <li>Collaborated with cross-functional teams to deliver a new customer onboarding feature on time and within budget.</li>
+                    <li>Optimized database queries and schema, leading to a 20% reduction in latency for critical operations.</li>
+                </ul>
+            </div>
+            <!-- Experience Item 2 -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-2xl font-semibold text-indigo-700">Sellerbration</h3>
+                    <span class="text-gray-500 text-sm">Dec 2020 – March 2021</span>
+                </div>
+                <p class="text-xl font-medium text-gray-800 mb-3">Software Engineer intern</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Contributed to the development of an internal analytics dashboard using Python and Django.</li>
+                    <li>Assisted in debugging and resolving production issues, ensuring system stability and uptime.</li>
+                    <li>Participated in code reviews and contributed to improving code quality and adherence to best practices.</li>
+                    <li>Developed automated tests to ensure the reliability of new features, reducing manual testing effort by 15%.</li>
+                </ul>
+            </div>
+            <!-- Add more experience items as needed -->
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="container">
+        <h2 class="text-3xl md:text-4xl text-center mb-12">Certifications</h2>
+        <div class="space-y-8">
+            <!-- Certificate Item 1: GCP Associate Cloud Engineer -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-2">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center text-2xl font-semibold text-indigo-700 hover:text-indigo-800 transition-colors">
+                        Google Cloud Certified - Associate Cloud Engineer
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link ml-2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                    </a>
+                    <span class="text-gray-500 text-sm">Issued: 2024</span>
+                </div>
+                <p class="text-gray-700">Demonstrated proficiency in deploying, monitoring, and maintaining projects on Google Cloud.</p>
+            </div>
+            <!-- Certificate Item 2: GCP Professional Cloud Architect -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-2">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center text-2xl font-semibold text-indigo-700 hover:text-indigo-800 transition-colors">
+                        Google Cloud Certified - Professional Cloud Architect
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link ml-2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                    </a>
+                    <span class="text-gray-500 text-sm">Issued: 2025</span>
+                </div>
+                <p class="text-gray-700">Proven ability to design, develop, and manage robust, secure, scalable, highly available, and dynamic solutions to drive business objectives on Google Cloud.</p>
+            </div>
+            <!-- Add more certificates as needed -->
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="container">
+        <h2 class="text-3xl md:text-4xl text-center mb-12">Education</h2>
+        <div class="space-y-8">
+            <!-- Education Item 1 -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-2xl font-semibold text-indigo-700">Jamia Hamdard</h3>
+                    <span class="text-gray-500 text-sm">2017 – 2021</span>
+                </div>
+                <p class="text-xl font-medium text-gray-800 mb-3">Bachelor of Technology in ECE</p>
+                <p class="text-gray-700 mb-2">CGPA: 8.0</p>
+                <p class="text-gray-700">Relevant Coursework: Data Structures and Algorithms, Operating Systems, Database Management Systems, Software Engineering, etc.</p>
+            </div>
+            <!-- Education Item 2: Andra Education Society -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-2xl font-semibold text-indigo-700">Andra Education Society</h3>
+                    <span class="text-gray-500 text-sm">2016 - 2017</span>
+                </div>
+                <p class="text-xl font-medium text-gray-800 mb-3">Class XII</p>
+                <p class="text-gray-700 mb-2">CGPA: 8.0</p>
+                <p class="text-gray-700">Relevant Coursework: Physics, Chemistry, Maths & Computer science</p>
+            </div>
+            <!-- Add more education items if applicable (e.g., Master's, certifications) -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="text-3xl md:text-4xl text-center mb-12">Get in Touch</h2>
+        <div class="max-w-2xl mx-auto card p-8">
+            <p class="text-lg text-center mb-6  text-gray-700">
+                I'm always open to new opportunities and collaborations. Feel free to reach out!
+            </p>
+            <form class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Your Name" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="your.email@example.com" required>
+                </div>
+                <div>
+                    <label for="mobile" class="block text-sm font-medium text-gray-700 mb-1">Mobile</label>
+                    <input type="tel" id="mobile" name="mobile" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Your Mobile Number" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send icon"><path d="m22 2-7 7m-1.41 1.41a2 2 0 1 0-2.82-2.82L2 22l20-20Z"/></svg>
+                    Send Message
+                </button>
+            </form>
+            <div class="mt-8 text-center">
+                <p class="text-gray-600 mb-2">Connect with me on:</p>
+                <div class="flex justify-center gap-6">
+                    <a href="https://www.linkedin.com/in/sohail1999/" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/sohailali26/" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.44-.78-3.46 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.55 1.02-.9 2.22-.78 3.47 0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                        <span class="sr-only">GitHub</span>
+                    </a>
+                    <!-- Add more social links as needed (e.g., Twitter, personal website) -->
+                </div>
+                <p class="text-gray-600 mt-4">Location: Delhi, India</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Sohail. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with ❤️ and Code</p>
+        </div>
+    </footer >
+
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Theme toggle logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        // Function to set the theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Check for saved theme preference on load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // If no preference saved, check system preference
+            setTheme('dark');
+        } else {
+            setTheme('light'); // Default to light if no preference and system is not dark
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+
+        // Function to fetch and display GitHub pinned repositories
+        async function fetchGitHubPinnedRepos() {
+            const projectsGrid = document.getElementById('projects-grid');
+            const githubUsername = 'sohailali26'; // Your GitHub username
+
+            // Mock data for demonstration.
+            // In a real application, you would fetch this from a backend
+            // or use a service that handles GitHub API requests and CORS.
+            const mockProjects = [
+                {
+                    name: "Portfolio Website",
+                    description: "A personal portfolio website showcasing projects, skills, and experience built with modern web technologies.",
+                    technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+                    liveDemo: "#", // Replace with actual live demo link if available
+                    githubLink: `https://github.com/${githubUsername}/sde-portfolio-template`
+                },
+                {
+                    name: "E-commerce Backend API",
+                    description: "Robust backend API for an e-commerce platform, handling product management, user authentication, and order processing.",
+                    technologies: ["Java", "Spring Boot", "PostgreSQL", "Microservices"],
+                    liveDemo: "#",
+                    githubLink: `https://github.com/${githubUsername}/e-commerce-backend` // Replace with actual repo name
+                },
+                {
+                    name: "Real-time Chat Application",
+                    description: "A real-time chat application with user authentication, private messaging, and group chat features.",
+                    technologies: ["Node.js", "Express.js", "Socket.IO", "MongoDB", "React.js"],
+                    liveDemo: "#",
+                    githubLink: `https://github.com/${githubUsername}/real-time-chat-app` // Replace with actual repo name
+                }
+            ];
+
+            // Clear existing content
+            projectsGrid.innerHTML = '';
+
+            // Render projects
+            mockProjects.forEach(project => {
+                const projectCard = `
+                    <div class="card flex flex-col">
+                        <h3 class="text-2xl font-semibold mb-3 text-indigo-700">${project.name}</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">
+                            ${project.description}
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${project.technologies.map(tech => `<span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">${tech}</span>`).join('')}
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="${project.liveDemo}" target="_blank" class="btn-primary text-sm px-3 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link icon"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.5 3.5"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07L14.5 20.5"/></svg>
+                                Live Demo
+                            </a>
+                            <a href="${project.githubLink}" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm px-3 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github icon"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.44-.78-3.46 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.55 1.02-.9 2.22-.78 3.47 0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                `;
+                projectsGrid.insertAdjacentHTML('beforeend', projectCard);
+            });
+
+            // Re-initialize Lucide icons after adding new HTML
+            lucide.createIcons();
+        }
+
+        // Call the function to load projects when the page loads
+        document.addEventListener('DOMContentLoaded', fetchGitHubPinnedRepos);
+
+        // Initialize Lucide icons for the rest of the page
+        lucide.createIcons();
+    </script>
+</body>
+</html>
