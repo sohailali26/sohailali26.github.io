@@ -172,20 +172,21 @@
 
     <!-- Header/Hero Section -->
     <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16 md:py-24">
-        <div class="container flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-            <!-- Profile Photo (appears first on mobile due to order-first) -->
-            <div class="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg mb-8 md:mb-0 order-first md:order-none">
+        <!-- Adjusted container for mobile layout control -->
+        <div class="container flex flex-col md:flex-row justify-between md:items-center">
+            <!-- Profile Photo (order-first on mobile, self-end for right alignment) -->
+            <div class="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg mb-8 md:mb-0 order-first md:order-none self-end">
                 <img src="https://raw.githubusercontent.com/sohailali26/portfolio/main/profile.PNG" alt="Your Portrait" class="w-full h-full object-cover">
             </div>
-            <!-- Text Content (appears after photo on mobile due to order-last) -->
-            <div class="md:w-2/3 order-last md:order-none">
+            <!-- Text Content (order-last on mobile, text-left for alignment) -->
+            <div class="md:w-2/3 order-last md:order-none text-left">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight animate-fade-in-up">Hi, I'm Sohail</h1>
                 <p class="text-xl md:text-2xl font-light mb-6">A Passionate Software Development Engineer</p>
                 <p class="text-lg mb-4 max-w-2xl mx-auto md:mx-0">
                     I build robust and scalable software solutions. With a strong foundation in backend development, cloud technologies, and data structures, I thrive on solving complex problems and
                     creating impactful applications.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
+                <div class="flex flex-col sm:flex-row justify-start gap-4 mb-8">
                     <p class="text-lg flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2.02 15.97 15.97 0 0 1-8.83-5.07 15.97 15.97 0 0 1-5.07-8.83A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         +91 9315103510
@@ -195,7 +196,7 @@
                         sde.sohail@gmail.com
                     </p>
                 </div>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                <div class="flex flex-col sm:flex-row justify-start gap-4">
                     <a href="#projects" class="btn-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code icon"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                         View Projects
